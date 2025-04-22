@@ -1,8 +1,10 @@
 package model.entities.utils;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import model.entities.Pet;
+
+import java.io.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,24 @@ public class FileManager {
 
         return list;
 
+    }
 
+    public void salvarFormulario(Pet pet,String pathForm,List perguntas){
+        LocalDateTime date = LocalDateTime.now();
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("[yyyyMMdd'T'HHmm");
+        String dateFormatado = date.format(dateFormat);
+
+        pathForm += dateFormatado + " - "+pet.getNome().toUpperCase()+".txt";
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathForm))) {
+            for (int i = 0;i<perguntas.size();i++){
+                bw.write(i+1+" - "+pet.getNome());
+                bw.newLine();
+            }
+
+            } catch (IOException e ) {
+            System.out.println("Erro ao salvar no arquivo "+e.getMessage());
+
+        }
     }
 }

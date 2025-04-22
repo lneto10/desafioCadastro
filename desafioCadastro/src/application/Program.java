@@ -1,5 +1,6 @@
 package application;
 
+import model.entities.Pet;
 import model.entities.enums.Sexo;
 import model.entities.enums.TipoPet;
 import model.entities.utils.FileManager;
@@ -40,25 +41,32 @@ public class Program {
                         nome = sc.next();
                     }
                     else if (i == 1){
+                        System.out.print(">> ");
                         String aux = sc.next();
                         tipo = TipoPet.valueOf(aux.toUpperCase());
                     }
-                    else if (i ==2 ){
+                    else if (i == 2 ){
+                        System.out.print(">> ");
                         String aux = sc.next();
                         sexo = Sexo.valueOf(aux.toUpperCase());
                     }
                     else if (i == 3){
+                        System.out.print(">> ");
                         endereco = sc.next();
                     }
                     else if (i == 4 ){
+                        System.out.print(">> ");
                         idade = sc.nextInt();
                     }
                     else if (i == 5){
+                        System.out.print(">> ");
                         peso = sc.nextDouble();
                     }
                     else if (i == 6){
+                        System.out.print(">> ");
                         raca = sc.next();
                     }
+                    Pet pet = new Pet(nome,endereco,idade,peso,raca,sexo,tipo);
 
                 }
         }

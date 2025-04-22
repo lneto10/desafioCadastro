@@ -15,11 +15,9 @@ public class Pet {
     private TipoPet tipo;
 
 
-    public Pet(String nome, String sobrenome, String endereco, String bairro, Integer idade, Double peso, String raça, Sexo sexo, TipoPet tipo) {
+    public Pet(String nome, String endereco, Integer idade, Double peso, String raça, Sexo sexo, TipoPet tipo) {
         this.nome = nome;
-        this.sobrenome = sobrenome;
         this.endereco = endereco;
-        this.bairro = bairro;
         this.idade = idade;
         this.peso = peso;
         this.raça = raça;
