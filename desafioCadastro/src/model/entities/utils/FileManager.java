@@ -35,7 +35,7 @@ public class FileManager {
 
     }
 
-    public void salvarFormulario(Pet pet,String pathForm,List perguntas){
+    public void salvarFormulario(Pet pet,String pathForm){
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("[yyyyMMdd'T'HHmm");
         String dateFormatado = date.format(dateFormat);
@@ -43,10 +43,16 @@ public class FileManager {
         pathForm += dateFormatado + " - "+pet.getNome().toUpperCase()+".txt";
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathForm))) {
-            for (int i = 0;i<perguntas.size();i++){
-                bw.write(i+1+" - "+pet.getNome());
-                bw.newLine();
-            }
+            bw.write("1 - " + pet.getNome() + "\n");
+            bw.write("2 - " + pet.getTipo() + "\n");
+            bw.write("3 - " + pet.getSexo() + "\n");
+            bw.write("4 - " + pet.getEndereco() + "\n");
+            bw.write("5 - " + Math.round(pet.getIdade()) + ((pet.getIdade() < 1) ? "meses" : " anos") + "\n");
+            bw.write("6 - " + pet.getPeso() + "\n");
+            bw.write("7 - " + pet.getRaça() + "\n");
+
+            System.out.println("Formulário salvo com sucesso no caminho "+pathForm);
+
 
             } catch (IOException e ) {
             System.out.println("Erro ao salvar no arquivo "+e.getMessage());

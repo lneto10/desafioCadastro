@@ -8,14 +8,14 @@ public class Pet {
     private String sobrenome;
     private String endereco;
     private String bairro;
-    private Integer idade;
+    private Double idade;
     private Double peso;
     private String raça;
     private Sexo sexo;
     private TipoPet tipo;
 
 
-    public Pet(String nome, String endereco, Integer idade, Double peso, String raça, Sexo sexo, TipoPet tipo) {
+    public Pet(String nome, String endereco, Double idade, Double peso, String raça, Sexo sexo, TipoPet tipo) {
         this.nome = nome;
         this.endereco = endereco;
         this.idade = idade;
@@ -57,11 +57,11 @@ public class Pet {
         this.bairro = bairro;
     }
 
-    public Integer getIdade() {
+    public Double getIdade() {
         return idade;
     }
 
-    public void setIdade(Integer idade) {
+    public void setIdade(Double idade) {
         this.idade = idade;
     }
 
